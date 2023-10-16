@@ -1,0 +1,140 @@
+pishrink.sh v0.1.2 patched for Microart
+pishrink.sh: Gathering data ...
+Line 220
+beforesize: 4.6G
+parted_output: BYT;
+/home/dims/Design/MicroART/shrinking-images/malina2_5.08_u43_everything_shrunk.img:4925506048B:file:512:512:msdos::;
+1:4194304B:70254591B:66060288B:fat32::lba;
+2:70254592B:4365221887B:4294967296B:ext4::;
+3:4365221888B:4925506047B:560284160B:ext4::;
+partnum: 2
+partstart: 70254592
+oldpartend: 4365221887
+parttype: primary
+tune2fs_output: tune2fs 1.44.1 (24-Mar-2018)
+Filesystem volume name:   <none>
+Last mounted on:          /
+Filesystem UUID:          0aed834e-8c8f-412d-a276-a265dc676112
+Filesystem magic number:  0xEF53
+Filesystem revision #:    1 (dynamic)
+Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent flex_bg sparse_super large_file uninit_bg dir_nlink extra_isize
+Filesystem flags:         signed_directory_hash 
+Default mount options:    user_xattr acl
+Filesystem state:         clean
+Errors behavior:          Continue
+Filesystem OS type:       Linux
+Inode count:              258048
+Block count:              1048576
+Reserved block count:     52428
+Free blocks:              597118
+Free inodes:              164910
+First block:              0
+Block size:               4096
+Fragment size:            4096
+Reserved GDT blocks:      78
+Blocks per group:         32768
+Fragments per group:      32768
+Inodes per group:         8064
+Inode blocks per group:   504
+Flex block group size:    16
+Filesystem created:       Fri Nov 25 20:55:35 2016
+Last mount time:          Tue Mar 15 23:22:11 2022
+Last write time:          Tue Mar 15 23:27:15 2022
+Mount count:              6
+Maximum mount count:      1
+Last checked:             Thu Jun 29 20:23:53 2017
+Check interval:           0 (<none>)
+Lifetime writes:          45 GB
+Reserved blocks uid:      0 (user root)
+Reserved blocks gid:      0 (group root)
+First inode:              11
+Inode size:	          256
+Required extra isize:     28
+Desired extra isize:      28
+Journal inode:            8
+Default directory hash:   half_md4
+Directory Hash Seed:      7097f6b8-1a48-4919-a95e-690ef0ae3eb1
+Journal backup:           inode blocks
+currentsize: 1048576
+blocksize: 4096
+pishrink.sh: Checking filesystem ...
+/dev/loop34: 93138/258048 files (2.5% non-contiguous), 451458/1048576 blocks
+resize2fs 1.44.1 (24-Mar-2018)
+Line 240
+currentsize: 1048576
+minsize: 483654
+Line 248
+extra_space: 564922
+Line 255
+minsize: 488654
+pishrink.sh: Shrinking filesystem ...
+resize2fs 1.44.1 (24-Mar-2018)
+Resizing the filesystem on /dev/loop34 to 488654 (4k) blocks.
+Begin pass 2 (max = 180243)
+Relocating blocks             ----------------------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Begin pass 3 (max = 32)
+Scanning inode table          ----------------------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Begin pass 4 (max = 14767)
+Updating inode references     ----------------------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+The filesystem on /dev/loop34 is now 488654 (4k) blocks long.
+
+Line 274
+partnewsize: 2001526784
+newpartend: 2071781376
+Line 296
+endresult: BYT;
+/home/dims/Design/MicroART/shrinking-images/malina2_5.08_u43_everything_shrunk.img:4925506048B:file:512:512:msdos::;
+1:32256B:4194303B:4162048B:free;
+1:4194304B:70254591B:66060288B:fat32::lba;
+2:70254592B:2071781887B:2001527296B:ext4::;
+1:2071781888B:4365221887B:2293440000B:free;
+3:4365221888B:4925506047B:560284160B:ext4::;
+Line 303
+lastpart: 3:4365221888B:4925506047B:560284160B:ext4::;
+lastpartnum: 3
+partnum: 2
+pishrink.sh: Moving partition ...
+Line 308
+lastpartnum: 3
+freebegin: 2071781888
+Usage: parted [OPTION]... [DEVICE [COMMAND [PARAMETERS]...]...]
+Apply COMMANDs with PARAMETERS to DEVICE.  If no COMMAND(s) are given, run in
+interactive mode.
+
+OPTIONs:
+  -h, --help                      displays this help message
+  -l, --list                      lists partition layout on all block devices
+  -m, --machine                   displays machine parseable output
+  -s, --script                    never prompts for user intervention
+  -v, --version                   displays the version
+  -a, --align=[none|cyl|min|opt]  alignment for new partitions
+
+COMMANDs:
+  align-check TYPE N                        check partition N for TYPE(min|opt) alignment
+  help [COMMAND]                           print general help, or help on COMMAND
+  mklabel,mktable LABEL-TYPE               create a new disklabel (partition table)
+  mkpart PART-TYPE [FS-TYPE] START END     make a partition
+  name NUMBER NAME                         name partition NUMBER as NAME
+  print [devices|free|list,all|NUMBER]     display the partition table, available devices, free space, all found partitions, or a particular partition
+  quit                                     exit program
+  rescue START END                         rescue a lost partition near START and END
+  resizepart NUMBER END                    resize partition NUMBER
+  rm NUMBER                                delete partition NUMBER
+  select DEVICE                            choose the device to edit
+  disk_set FLAG STATE                      change the FLAG on selected device
+  disk_toggle [FLAG]                       toggle the state of FLAG on selected device
+  set NUMBER FLAG STATE                    change the FLAG on partition NUMBER
+  toggle [NUMBER [FLAG]]                   toggle the state of FLAG on partition NUMBER
+  unit UNIT                                set the default unit to UNIT
+  version                                  display the version number and copyright information of GNU Parted
+
+Report bugs to bug-parted@gnu.org
+pishrink.sh: Shrinking image ...
+Line 325
+endresult: BYT;
+/home/dims/Design/MicroART/shrinking-images/malina2_5.08_u43_everything_shrunk.img:4925506048B:file:512:512:msdos::;
+1:32256B:4194303B:4162048B:free;
+1:4194304B:70254591B:66060288B:fat32::lba;
+2:70254592B:2071781887B:2001527296B:ext4::;
+1:2071781888B:4365221887B:2293440000B:free;
+3:4365221888B:4925506047B:560284160B:ext4::;
