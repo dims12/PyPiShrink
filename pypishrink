@@ -3,7 +3,7 @@
 import argparse
 import sys
 
-import runner
+import normalpyrunner as runner
 
 
 def describe_image(image_path: str, mute: bool = False):

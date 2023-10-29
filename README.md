@@ -15,4 +15,4 @@ As an original shell script, this script just automates running commands like
 These tools should be installed. User should have `sudo` permissions.
 
 Not all features of an original script are implemented. But this script also can shrink image with more than two 
-partitions. It moves resized partitions what original script can't do.  
+partitions. It can move resized partitions what original script can't do.  
