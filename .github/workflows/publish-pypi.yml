@@ -1,0 +1,43 @@
+# Publishes sdist + wheel to https://pypi.org/project/PyPiShrink/
+# Source repo: https://github.com/dims12/PyPiShrink
+#
+# PyPI Trusted Publisher (OIDC) — no long-lived API token in GitHub:
+#   1. PyPI → PyPiShrink → Publishing → Add pending publisher → GitHub
+#   2. Owner: dims12, Repository: PyPiShrink, Workflow: publish-pypi.yml
+#   3. Push this workflow to main, then GitHub → Releases → Draft → Publish
+#
+# Before each release: bump version in setup.py, commit, then publish the release from that commit.
+
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+
+  workflow_dispatch:
+    # Manual run; still requires Trusted Publisher or token (see below).
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build tools
+        run: pip install --upgrade build
+
+      - name: Build sdist and wheel
+        run: python -m build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        # Token fallback if OIDC is not configured on PyPI:
+        #   with:
+        #     password: ${{ secrets.PYPI_API_TOKEN }}

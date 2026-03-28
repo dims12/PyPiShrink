@@ -1,1 +1,5 @@
 *.img
+/dist/
+/build/
+*.egg-info/
+*.egg

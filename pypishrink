@@ -5,7 +5,6 @@ import sys
 
 import normalpyrunner as runner
 
-
 def describe_image(image_path: str, mute: bool = False):
     out_lines = []
     runner.exec(f"parted -ms '{image_path}' unit B print free", True, out_lines=out_lines, mute_out=mute, mute_err=mute)
@@ -45,9 +44,7 @@ def check_fix_filesystem(loop_device):
     try:
         runner.exec(f"e2fsck -pf {loop_device}", sudo=True)
 
-    except ValueError as e:
-        pass
-
+    except ValueError:
         runner.exec(f"e2fsck -y {loop_device}", sudo=True)
 
     res = runner.exec(f"resize2fs -P {loop_device}", sudo=True)
